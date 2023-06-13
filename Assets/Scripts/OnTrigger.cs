@@ -52,10 +52,14 @@ public class OnTrigger : MonoBehaviour
         }
     }
 
-    private void ResetBall()
-    {
-        ballRb.velocity = Vector3.zero;
-        ballRb.angularVelocity = Vector3.zero;
-        ballRb.position = new Vector3(0f, 0.06f, 0f); // Set the ball's initial position
-    }
+   private void ResetBall()
+{
+    ballRb.velocity = Vector3.zero;
+    ballRb.angularVelocity = Vector3.zero;
+    ballRb.position = new Vector3(0f, 0.06f, 0f); // Set the ball's initial position
+    ballRb.rotation = Quaternion.identity; // Reset the ball's rotation
+    ballRb.useGravity = true; // Enable gravity for the ball
+}
+
+
 }

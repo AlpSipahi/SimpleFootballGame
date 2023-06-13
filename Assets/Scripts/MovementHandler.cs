@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class FootballMovement : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed = 10f;
-    [SerializeField] private float releaseHeight = 5f;
-    [SerializeField] private float bounceDamping = 0.8f;
+    [SerializeField] private float movementSpeed = 15f;
+    [SerializeField] private float releaseHeight;
+    [SerializeField] private float bounceDamping = 0.75f;
 
     private bool isClicked = false;
     private Vector3 mouseStartPosition;
@@ -24,14 +24,16 @@ public class FootballMovement : MonoBehaviour
         Collider collider = GetComponent<Collider>();
         collider.material = new PhysicMaterial()
         {
-            bounciness = 0.5f, // Adjust the bounciness factor as desired
-            dynamicFriction = 0.5f,
-            staticFriction = 0.5f
+            bounciness = 0.7f, // Adjust the bounciness factor as desired
+            dynamicFriction = 0.4f,
+            staticFriction = 0.4f
         };
     }
 
     void Update()
     {
+        releaseHeight = 6f;
+        currentReleaseHeight = 6f;
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
