@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class OnTrigger : MonoBehaviour
 {
@@ -7,12 +6,15 @@ public class OnTrigger : MonoBehaviour
     private bool ballInsideGoal = false;
     private float resetDelay = 2f; // Delay in seconds before resetting the ball
     public ScoreCounter scoreCounter;
-
     private Rigidbody ballRb;
+    private AudioSource audioSource;
+
+    public AudioClip goalScoreAudio;
 
     private void Start()
     {
         ballRb = GameObject.FindGameObjectWithTag("Ball").GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,7 +32,8 @@ public class OnTrigger : MonoBehaviour
             ResetBall();
             Debug.Log("Score: " + score);
 
-           
+            // Play the goal score audio clip
+            audioSource.PlayOneShot(goalScoreAudio);
         }
     }
 
@@ -52,14 +55,12 @@ public class OnTrigger : MonoBehaviour
         }
     }
 
-   private void ResetBall()
-{
-    ballRb.velocity = Vector3.zero;
-    ballRb.angularVelocity = Vector3.zero;
-    ballRb.position = new Vector3(0f, 0.06f, 0f); // Set the ball's initial position
-    ballRb.rotation = Quaternion.identity; // Reset the ball's rotation
-    ballRb.useGravity = true; // Enable gravity for the ball
-}
-
-
+    private void ResetBall()
+    {
+        ballRb.velocity = Vector3.zero;
+        ballRb.angularVelocity = Vector3.zero;
+        ballRb.position = new Vector3(0f, 0.06f, 0f); // Set the ball's initial position
+        ballRb.rotation = Quaternion.identity; // Reset the ball's rotation
+        ballRb.useGravity = true; // Enable gravity for the ball
+    }
 }
