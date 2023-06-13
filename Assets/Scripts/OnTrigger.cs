@@ -6,6 +6,7 @@ public class OnTrigger : MonoBehaviour
     private int score = 0;
     private bool ballInsideGoal = false;
     private float resetDelay = 2f; // Delay in seconds before resetting the ball
+    public ScoreCounter scoreCounter;
 
     private Rigidbody ballRb;
 
@@ -22,11 +23,11 @@ public class OnTrigger : MonoBehaviour
             ballInsideGoal = true;
 
             // Increment the score
+            scoreCounter.IncrementScore();
             score++;
 
             // Reset the ball
             ResetBall();
-
             Debug.Log("Score: " + score);
 
            

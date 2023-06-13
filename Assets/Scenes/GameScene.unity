@@ -239,6 +239,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b16d8637fb9d5374880620ee32d441b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreText: {fileID: 1786430584}
+  onTrigger: {fileID: 1278564415864114610}
 --- !u!1 &1102955655
 GameObject:
   m_ObjectHideFlags: 0
@@ -1079,6 +1081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8882fac39fa44f1abe61c58466c2d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreCounter: {fileID: 42837767}
 --- !u!33 &1280426878393718687
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2796,7 +2799,7 @@ GameObject:
   - component: {fileID: 1278564415864114610}
   m_Layer: 0
   m_Name: GoalCollider
-  m_TagString: Untagged
+  m_TagString: Goal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -1,14 +1,17 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class ScoreCounter : MonoBehaviour
 {
     private int score = 0;
-    private Text scoreText;
+    [SerializeField]
+    private TextMeshProUGUI scoreText;
+    public OnTrigger onTrigger;
 
     private void Start()
     {
-        scoreText = GetComponent<Text>();
+        onTrigger = GameObject.FindGameObjectWithTag("Goal").GetComponent<OnTrigger>();
+        onTrigger.scoreCounter = this;
         UpdateScoreText();
     }
 
@@ -21,5 +24,10 @@ public class ScoreCounter : MonoBehaviour
     private void UpdateScoreText()
     {
         scoreText.text = "Score: " + score;
+    }
+    
+    public int getScore()
+    {
+        return score;
     }
 }
